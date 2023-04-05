@@ -1,15 +1,15 @@
 ﻿using DataStructruesLibs.Array;
+using DataStructruesLibs.LinkedList;
+using DataStructruesLibs.LinkedList.SinglyLinkedList;
+var list = new List<string>(){"Ali","Sefa","Ahmet","Ali","Mehmet","Ayse","Ali"};
+var linkedList = new System.Collections.Generic.LinkedList<string>(list);
+var root = new SinglyLinkedList<string>(list);
+var nodeAli = root.FindLast("Ali");
+Console.WriteLine(nodeAli.Next == null);
+
+var nodeLinkedList = linkedList.FindLast("Ali");
+
+Console.WriteLine(nodeLinkedList.Next == null);
 
 
-var a = new Array<int>(1,2,3,4,5);
-
-
-
-var b = a.Where(x => x < 4);
-
-
-foreach (var item in b)
-{
-    Console.WriteLine(item);
-}
 

@@ -8,8 +8,12 @@
 
   <ItemGroup>
     <None Remove="Array\" />
+    <None Remove="LinkedList\" />
+    <None Remove="LinkedList\SinglyLinkedList\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Array\" />
+    <Folder Include="LinkedList\" />
+    <Folder Include="LinkedList\SinglyLinkedList\" />
   </ItemGroup>
 </Project>
