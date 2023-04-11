@@ -7,6 +7,7 @@ namespace DataStructruesLibs.LinkedList.SinglyLinkedList
 
 	{
 		public SinglyLinkedListNode<T> Head { get; set; }
+
         public SinglyLinkedList()
         {
 
@@ -19,7 +20,7 @@ namespace DataStructruesLibs.LinkedList.SinglyLinkedList
             }
 
         }
-
+        //--------------Add-----------------------------------------
         public void AddFirst(T value)
         {
             var newNode = new SinglyLinkedListNode<T>(value);
@@ -75,6 +76,9 @@ namespace DataStructruesLibs.LinkedList.SinglyLinkedList
 
 
         }
+        //--------------Add-----------------------------------------
+
+        //--------------Find----------------------------------------
 
         public SinglyLinkedListNode<T> Find(T value)
         {
@@ -98,6 +102,63 @@ namespace DataStructruesLibs.LinkedList.SinglyLinkedList
             //if (temp.Value.Equals(value)) lastNode = temp;
             return lastNode;
         }
+        //--------------Find----------------------------------------
+
+        //--------------Remove----------------------------------------
+
+        public SinglyLinkedListNode<T> RemoveFirst()
+        {
+            if (Head == null)
+            {
+                throw new Exception("Silinecek bir sey yok");
+            }
+            var temp = Head;
+            Head = Head.Next;
+            return temp;
+        }
+        public SinglyLinkedListNode<T> RemoveLast()
+        {
+            if (Head == null)
+            {
+                throw new Exception("Silinecek bir sey yok");
+
+            }
+            var prev = Head;
+            var temp = Head;
+            while (temp.Next!=null)
+            {
+                prev = temp;
+                //if (temp.Next.Next == null) break;
+                temp = temp.Next;
+            }
+            var removeLast = prev.Next;
+            prev.Next = null;
+            return removeLast;
+            
+            
+        }
+        public SinglyLinkedListNode<T> Remove(T value)
+        {
+            if (Head == null) throw new Exception("The list is null");
+            var temp = Head;
+            if (temp.Next == null) {
+                var returNode = temp;
+                Head = null;
+                return returNode;
+            }
+
+            while (!temp.Next.Value.Equals(value))
+            {
+                temp = temp.Next;
+                if (temp.Next == null) throw new Exception($"There is no this '{value}' in the list");
+            }
+            var removedNode = temp.Next;
+            temp.Next = temp.Next.Next;
+            return removedNode;
+
+        }
+        //--------------Remove----------------------------------------
+
 
         public IEnumerator<T> GetEnumerator()
         {
