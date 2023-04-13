@@ -3,6 +3,8 @@ using DataStructruesLibs.LinkedList;
 using DataStructruesLibs.LinkedList.DoublyLinkedList;
 using DataStructruesLibs.LinkedList.SinglyLinkedList;
 using System.Collections.Generic;
+using static System.Net.Mime.MediaTypeNames;
+
 var list = new List<string>(){"Sefa","Ahmet","Ali","Mehmet","Ayse"};
 
 
@@ -10,6 +12,10 @@ var a = new DoublyLinkedList<int>();
 
 a.AddFirst(1);
 a.AddFirst(2);
+a.AddFirst(3);
+a.AddFirst(4);
+a.AddAfter(a.Head.Next.Next.Next, 5);
 
-Console.WriteLine(a.Head.Next.Next == null);
+
+Console.WriteLine(a.Head.Next.Next.Next.Next);
 

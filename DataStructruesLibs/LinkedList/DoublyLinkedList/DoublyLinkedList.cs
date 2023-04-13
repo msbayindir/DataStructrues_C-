@@ -15,12 +15,14 @@ namespace DataStructruesLibs.LinkedList.DoublyLinkedList
         //----------------------------------Add----------------------------------
         public void AddFirst(T value)
         {
-            if(Head == null)
+            var newNode = new DoublyLinkedListNode<T>(value);
+
+            if (Head == null)
             {
-                Head = new DoublyLinkedListNode<T>(value);
+                Head = newNode;
+                Tail = Head;
                 return;
             }
-            var newNode = new DoublyLinkedListNode<T>(value);
             newNode.Next = Head;
             Head.Prev = newNode;
             Head = newNode;
@@ -40,6 +42,40 @@ namespace DataStructruesLibs.LinkedList.DoublyLinkedList
             newNode.Prev = Tail;
             Tail = newNode;
         }
+        public void AddAfter(DoublyLinkedListNode<T> node,T value)
+        {
+            if (Head == null)
+            {
+                AddFirst(value);
+                return;
+            }
+            if (node == Tail)
+            {
+                AddLast(value);
+                return;
+            }
+            var newNode = new DoublyLinkedListNode<T>(value);
+            newNode.Next = node.Next;
+            node.Next.Prev = newNode;
+            node.Next = newNode;
+            node = newNode.Prev;
+
+
+
+        }
+        //public void AddBefore(DoublyLinkedListNode<T> node, T value)
+        //{
+        //    if (Head == null)
+        //    {
+        //        AddFirst(value);
+        //        return;
+        //    }
+        //    if (node == Head)
+        //    {
+        //        AddFirst(value);
+        //        return;
+        //    }
+        //}
         //----------------------------------Add----------------------------------
 
     }
