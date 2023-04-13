@@ -146,7 +146,7 @@ namespace DataStructruesLibs.LinkedList.SinglyLinkedList
                 Head = null;
                 return returNode;
             }
-
+                
             while (!temp.Next.Value.Equals(value))
             {
                 temp = temp.Next;

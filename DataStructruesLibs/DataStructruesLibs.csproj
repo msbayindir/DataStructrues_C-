@@ -10,10 +10,12 @@
     <None Remove="Array\" />
     <None Remove="LinkedList\" />
     <None Remove="LinkedList\SinglyLinkedList\" />
+    <None Remove="LinkedList\DoublyLinkedList\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Array\" />
     <Folder Include="LinkedList\" />
     <Folder Include="LinkedList\SinglyLinkedList\" />
+    <Folder Include="LinkedList\DoublyLinkedList\" />
   </ItemGroup>
 </Project>
