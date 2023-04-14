@@ -58,24 +58,31 @@ namespace DataStructruesLibs.LinkedList.DoublyLinkedList
             newNode.Next = node.Next;
             node.Next.Prev = newNode;
             node.Next = newNode;
-            node = newNode.Prev;
+            newNode.Prev = node;
+
 
 
 
         }
-        //public void AddBefore(DoublyLinkedListNode<T> node, T value)
-        //{
-        //    if (Head == null)
-        //    {
-        //        AddFirst(value);
-        //        return;
-        //    }
-        //    if (node == Head)
-        //    {
-        //        AddFirst(value);
-        //        return;
-        //    }
-        //}
+        public void AddBefore(DoublyLinkedListNode<T> node, T value)
+        {
+            if (Head == null)
+            {
+                AddFirst(value);
+                return;
+            }
+            if (node == Head)
+            {
+                AddFirst(value);
+                return;
+            }
+            var newNode = new DoublyLinkedListNode<T>(value);
+            node.Prev.Next = newNode;
+            newNode.Prev = node.Prev;
+            newNode.Next = node;
+            node.Prev = newNode;
+            
+        }
         //----------------------------------Add----------------------------------
 
     }

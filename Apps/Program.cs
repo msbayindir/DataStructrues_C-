@@ -14,8 +14,9 @@ a.AddFirst(1);
 a.AddFirst(2);
 a.AddFirst(3);
 a.AddFirst(4);
-a.AddAfter(a.Head.Next.Next.Next, 5);
+a.AddAfter(a.Head, 5);
+a.AddBefore(a.Head.Next, 6);
 
 
-Console.WriteLine(a.Head.Next.Next.Next.Next);
+Console.WriteLine(a.Head.Next);
 
