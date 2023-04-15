@@ -85,6 +85,40 @@ namespace DataStructruesLibs.LinkedList.DoublyLinkedList
         }
         //----------------------------------Add----------------------------------
 
+        //----------------------------------Remove-------------------------------
+        public DoublyLinkedListNode<T> Remove(T value)
+        {
+            if (Head.Value.Equals(value))
+            {
+                Head = Head.Next;
+                var returnNode = Head.Prev;
+                Head.Prev = null;
+                return returnNode;
+            }
+            if (Tail.Value.Equals(value))
+            {
+                Tail = Tail.Prev;
+                var returnNode = Tail.Next;
+                Tail.Next = null;
+                return returnNode;
+            }
+            var temp = Head;
+
+            while (!temp.Value.Equals(value))
+            {
+                temp = temp.Next;
+            if (!temp.Value.Equals(value) && temp == Tail) throw new Exception($"The Doubly list do not have The {value} ");
+            }
+            var prev = temp.Prev;
+            prev.Next = temp.Next;
+            temp.Next.Prev = prev;
+            return temp;
+        }
+
+        //----------------------------------Remove-------------------------------
+
+
+
     }
 }
 
